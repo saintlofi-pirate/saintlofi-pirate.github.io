@@ -1,21 +1,18 @@
-const scene = document.querySelector('.scene');
-const cursorOrb = document.querySelector('.cursor-orb');
+const hero = document.querySelector('.hero');
+const cosmos = document.querySelector('.cosmos');
 
-if (scene && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-  window.addEventListener('pointermove', (event) => {
-    const x = (event.clientX / window.innerWidth - 0.5).toFixed(3);
-    const y = (event.clientY / window.innerHeight - 0.5).toFixed(3);
-    scene.style.setProperty('--mx', x);
-    scene.style.setProperty('--my', y);
-
-    if (cursorOrb) {
-      cursorOrb.classList.add('is-visible');
-      cursorOrb.style.transform = `translate3d(${event.clientX - 17}px, ${event.clientY - 17}px, 0)`;
-    }
+if (hero && cosmos && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  cosmos.addEventListener('pointermove', (event) => {
+    const x = event.clientX / window.innerWidth - 0.5;
+    const y = event.clientY / window.innerHeight - 0.5;
+    hero.style.setProperty('--tilt-x', (y * -1.4).toFixed(3) + 'deg');
+    hero.style.setProperty('--tilt-y', (x * 1.8).toFixed(3) + 'deg');
+    cosmos.style.setProperty('--mx', x.toFixed(3));
+    cosmos.style.setProperty('--my', y.toFixed(3));
   }, { passive: true });
 
-  window.addEventListener('pointerleave', () => {
-    cursorOrb?.classList.remove('is-visible');
+  cosmos.addEventListener('pointerleave', () => {
+    hero.style.setProperty('--tilt-x', '0deg');
+    hero.style.setProperty('--tilt-y', '0deg');
   });
-
 }
