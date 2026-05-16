@@ -1,15 +1,14 @@
 :root {
   color-scheme: dark;
-  --night: #090c12;
-  --night-soft: #151b26;
-  --ink: #e9e0cd;
-  --muted: #a7adbd;
-  --line: rgba(233, 224, 205, 0.2);
-  --rust: #8b5a41;
-  --copper: #c48655;
-  --sage: #83918b;
-  --moon: #b8c0d4;
-  --lamp: #f4dfb3;
+  --night: #171a20;
+  --night-soft: #202632;
+  --ink: #e8dfca;
+  --muted: #aab0c4;
+  --line: rgba(232, 223, 202, 0.24);
+  --rust: #b77b4d;
+  --copper: #d49a60;
+  --sage: #9eb79a;
+  --moon: #aeb9d6;
   --shadow: rgba(0, 0, 0, 0.34);
 }
 
@@ -26,9 +25,8 @@ body {
   margin: 0;
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   background:
-    radial-gradient(circle at 50% 28%, rgba(186, 196, 220, 0.16), transparent 22%),
-    radial-gradient(circle at 28% 92%, rgba(137, 89, 65, 0.14), transparent 32%),
-    linear-gradient(180deg, #05070c 0%, #101723 48%, var(--night) 100%);
+    radial-gradient(circle at 50% 32%, rgba(174, 185, 214, 0.12), transparent 28%),
+    linear-gradient(180deg, #11151d 0%, var(--night) 54%, #0f1217 100%);
   color: var(--ink);
 }
 
@@ -55,7 +53,7 @@ a {
 }
 
 .cosmos::before {
-  opacity: 0.08;
+  opacity: 0.16;
   background:
     linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
@@ -65,22 +63,8 @@ a {
 
 .cosmos::after {
   background:
-    radial-gradient(circle at 50% 45%, transparent 0 34%, rgba(0, 0, 0, 0.18) 74%),
-    radial-gradient(circle at 20% 90%, rgba(183, 123, 77, 0.16), transparent 26%),
-    radial-gradient(circle at 78% 12%, rgba(174, 185, 214, 0.08), transparent 24%);
-}
-
-.atmosphere {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  pointer-events: none;
-  background:
-    linear-gradient(100deg, transparent 0 18%, rgba(210, 219, 238, 0.035) 34%, transparent 56%),
-    radial-gradient(ellipse at 50% 74%, rgba(216, 218, 216, 0.08), transparent 52%);
-  filter: blur(12px);
-  opacity: 0.72;
-  animation: atmosphere-drift 18s ease-in-out infinite;
+    radial-gradient(circle at 20% 90%, rgba(183, 123, 77, 0.18), transparent 26%),
+    radial-gradient(circle at 78% 12%, rgba(174, 185, 214, 0.1), transparent 24%);
 }
 
 .stars {
@@ -97,9 +81,9 @@ a {
   width: var(--s, 3px);
   height: var(--s, 3px);
   border-radius: 50%;
-  background: #d6ddf1;
-  box-shadow: 0 0 10px rgba(203, 212, 239, 0.48);
-  opacity: var(--o, 0.54);
+  background: #cbd4ef;
+  box-shadow: 0 0 12px rgba(203, 212, 239, 0.62);
+  opacity: var(--o, 0.7);
   animation: star-pulse var(--speed, 5s) ease-in-out infinite;
   animation-delay: var(--delay, 0s);
 }
@@ -135,57 +119,102 @@ a {
   transition: transform 260ms ease-out;
 }
 
-.signal-mark {
+.orbit-mark {
   position: relative;
-  width: clamp(180px, 19vw, 280px);
-  height: 78px;
-  margin-bottom: 28px;
+  width: clamp(190px, 20vw, 290px);
+  height: clamp(128px, 14vw, 192px);
+  margin-bottom: 34px;
   color: var(--moon);
   opacity: 0.92;
   animation: float-mark 9s ease-in-out infinite;
 }
 
-.signal-line {
-  position: absolute;
-  inset: 46px 0 auto;
-  height: 2px;
-  background: currentColor;
-  opacity: 0.38;
-}
-
-.signal-line::before,
-.signal-line::after {
-  content: "";
-  position: absolute;
-  top: -5px;
-  width: 12px;
-  height: 12px;
-  border: 2px solid currentColor;
-  border-radius: 50%;
-  opacity: 0.7;
-}
-
-.signal-line::before {
-  left: 18%;
-}
-
-.signal-line::after {
-  right: 18%;
-}
-
-.signal-star {
+.crest-orbit {
   position: absolute;
   left: 50%;
-  top: 12px;
-  width: 9px;
-  height: 9px;
+  bottom: 4%;
+  width: 82%;
+  height: 74%;
+  border: 8px solid currentColor;
+  border-bottom: 0;
+  border-radius: 50% 50% 0 0;
+  transform: translateX(-50%);
+}
+
+.crest-orbit::before,
+.crest-orbit::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  width: 8px;
+  height: 40%;
+  border-radius: 999px;
+  background: currentColor;
+}
+
+.crest-orbit::before {
+  left: -8px;
+}
+
+.crest-orbit::after {
+  right: -8px;
+}
+
+.crest-moon {
+  position: absolute;
+  right: 28%;
+  top: 14%;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.crest-moon::after {
+  content: "";
+  position: absolute;
+  right: 7px;
+  top: 7px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #141923;
+}
+
+.crest-ridge {
+  position: absolute;
+  left: 50%;
+  bottom: 25%;
+  width: 108px;
+  height: 52px;
+  transform: translateX(-50%);
+  background: currentColor;
+  clip-path: polygon(0 100%, 18% 54%, 34% 76%, 53% 22%, 74% 66%, 100% 28%, 100% 100%);
+}
+
+.crest-ridge::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 8px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #141923;
+  transform: translateX(-50%);
+}
+
+.crest-star {
+  position: absolute;
+  left: 26%;
+  top: 24%;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
   background: currentColor;
   box-shadow:
-    0 0 24px rgba(174, 185, 214, 0.55),
-    -52px 20px 0 -3px currentColor,
-    58px 24px 0 -4px currentColor;
-  transform: translateX(-50%);
+    38px -20px 0 -2px currentColor,
+    104px 38px 0 -2px currentColor;
 }
 
 .eyebrow {
@@ -202,8 +231,7 @@ h1 {
   padding-bottom: 22px;
   width: min(820px, 100%);
   border-bottom: 1px solid rgba(232, 223, 202, 0.18);
-  color: #ebe7db;
-  text-shadow: 0 18px 54px rgba(0, 0, 0, 0.42);
+  color: #dfe5f7;
   font-size: clamp(3.2rem, 6.6vw, 6.1rem);
   font-weight: 400;
   letter-spacing: 0.24em;
@@ -215,7 +243,7 @@ h1 {
 .intro {
   max-width: 640px;
   margin: 28px 0 0;
-  color: rgba(202, 205, 212, 0.86);
+  color: var(--muted);
   font-family: "Libre Baskerville", Georgia, serif;
   font-size: clamp(1rem, 2vw, 1.34rem);
   line-height: 1.85;
@@ -258,53 +286,22 @@ h1 {
   outline-offset: 3px;
 }
 
-.moon-surface {
+.planet {
   position: absolute;
   z-index: 3;
   left: 50%;
-  bottom: -46vh;
-  width: min(1180px, 118vw);
-  height: min(680px, 70vw);
+  bottom: -64vh;
+  width: min(1060px, 110vw);
+  height: min(620px, 65vw);
   border-radius: 50%;
   background:
-    radial-gradient(ellipse at 47% 13%, rgba(247, 239, 221, 0.2), transparent 17%),
-    radial-gradient(circle at 25% 27%, rgba(6, 7, 10, 0.34) 0 3.5%, transparent 4.8%),
-    radial-gradient(circle at 67% 23%, rgba(6, 7, 10, 0.26) 0 2.8%, transparent 4%),
-    radial-gradient(circle at 42% 32%, rgba(255, 255, 255, 0.08) 0 1px, transparent 2px),
-    radial-gradient(circle at 59% 18%, rgba(255, 255, 255, 0.06) 0 1px, transparent 2px),
-    linear-gradient(180deg, #737778, #343b45 45%, #11161e 100%);
+    radial-gradient(circle at 52% 20%, rgba(232, 223, 202, 0.2), transparent 18%),
+    linear-gradient(180deg, #384050, #171d28 64%, #0d1016);
   box-shadow:
-    inset 0 34px 100px rgba(246, 237, 216, 0.12),
-    inset 0 -70px 140px rgba(0, 0, 0, 0.44),
-    0 -34px 120px rgba(174, 185, 214, 0.14);
+    inset 0 28px 80px rgba(232, 223, 202, 0.08),
+    0 -30px 90px rgba(174, 185, 214, 0.12);
   transform: translateX(-50%);
   overflow: visible;
-}
-
-.moon-surface::before {
-  content: "";
-  position: absolute;
-  inset: 3% 8% auto;
-  height: 38%;
-  border-radius: 50%;
-  background:
-    linear-gradient(164deg, transparent 17%, rgba(255, 255, 255, 0.09) 19% 20%, transparent 21% 36%, rgba(0, 0, 0, 0.16) 37% 38%, transparent 39%),
-    linear-gradient(23deg, transparent 42%, rgba(255, 255, 255, 0.045) 43% 44%, transparent 45%),
-    radial-gradient(ellipse at 50% 20%, rgba(232, 223, 202, 0.15), transparent 72%);
-  opacity: 0.72;
-}
-
-.moon-surface::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 5%;
-  width: 48%;
-  height: 11%;
-  border-radius: 50%;
-  background: radial-gradient(ellipse at center, rgba(4, 6, 10, 0.48), transparent 68%);
-  transform: translateX(-50%);
-  filter: blur(6px);
 }
 
 .planet-ring {
@@ -325,243 +322,161 @@ h1 {
   transform: translateX(-50%) rotate(10deg);
 }
 
-.crater {
+.soil {
   position: absolute;
-  z-index: 1;
+  left: 28%;
+  top: 16%;
+  width: 44%;
+  height: 18%;
   border-radius: 50%;
-  border: 1px solid rgba(232, 223, 202, 0.1);
-  background: radial-gradient(ellipse at 42% 38%, rgba(0, 0, 0, 0.2), rgba(232, 223, 202, 0.05) 62%, transparent 70%);
+  background: radial-gradient(ellipse at center, rgba(232, 223, 202, 0.15), transparent 70%);
 }
 
-.crater-a {
-  left: 25%;
-  top: 15%;
-  width: 96px;
-  height: 29px;
-  transform: rotate(-8deg);
-}
-
-.crater-b {
-  left: 65%;
-  top: 17%;
-  width: 72px;
-  height: 22px;
-  transform: rotate(11deg);
-}
-
-.crater-c {
-  left: 46%;
-  top: 31%;
-  width: 128px;
-  height: 32px;
-  opacity: 0.62;
-}
-
-.ridge {
+.moon-dev {
   position: absolute;
-  z-index: 2;
-  left: var(--left);
-  top: var(--top);
-  width: var(--width);
-  height: 2px;
-  border-radius: 999px;
-  background: rgba(238, 229, 210, 0.12);
-  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.24);
-  transform: rotate(var(--angle));
-}
-
-.ridge-a {
-  --left: 27%;
-  --top: 24%;
-  --width: 180px;
-  --angle: -5deg;
-}
-
-.ridge-b {
-  --left: 56%;
-  --top: 27%;
-  --width: 150px;
-  --angle: 8deg;
-}
-
-.lighthouse {
-  position: absolute;
-  z-index: 4;
   left: 50%;
-  top: -18%;
-  width: 148px;
-  height: 304px;
+  top: 8%;
+  width: 72px;
+  height: 150px;
   transform: translateX(-50%);
-  filter: drop-shadow(0 26px 42px rgba(0, 0, 0, 0.46));
+  opacity: 0.74;
+  animation: moon-dev-breathe 6s ease-in-out infinite;
 }
 
-.lighthouse span {
+.moon-dev span {
   position: absolute;
   display: block;
 }
 
-.beam {
-  right: 72px;
-  top: 29px;
-  width: min(54vw, 680px);
-  height: 112px;
-  transform-origin: right center;
-  transform: rotate(-9deg);
-  clip-path: polygon(0 40%, 100% 0, 100% 100%, 0 60%);
-  background:
-    linear-gradient(90deg, transparent, rgba(244, 223, 179, 0.05) 36%, rgba(244, 223, 179, 0.2)),
-    radial-gradient(ellipse at 90% 50%, rgba(244, 223, 179, 0.28), transparent 54%);
-  filter: blur(1.2px);
-  mix-blend-mode: screen;
-  animation: lighthouse-beam 7.4s ease-in-out infinite;
-}
-
-.lantern-glow {
-  left: 55px;
-  top: 44px;
-  width: 38px;
-  height: 27px;
+.helmet {
+  left: 19px;
+  top: 0;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
-  background: var(--lamp);
-  box-shadow:
-    0 0 30px rgba(244, 223, 179, 0.78),
-    0 0 92px rgba(196, 134, 85, 0.34);
-  animation: lantern-dim 7.4s ease-in-out infinite;
+  background: #c7d0ea;
+  box-shadow: 0 0 20px rgba(220, 227, 245, 0.22);
 }
 
-.lantern-room {
-  left: 40px;
-  top: 34px;
-  width: 68px;
-  height: 48px;
-  border: 5px solid #161920;
-  border-radius: 4px;
-  background:
-    linear-gradient(90deg, transparent 27%, rgba(22, 25, 32, 0.78) 28% 34%, transparent 35% 64%, rgba(22, 25, 32, 0.78) 65% 71%, transparent 72%),
-    linear-gradient(180deg, rgba(244, 223, 179, 0.9), rgba(139, 90, 65, 0.58));
-  box-shadow: inset 0 -12px 18px rgba(0, 0, 0, 0.24);
+.visor {
+  left: 27px;
+  top: 15px;
+  width: 18px;
+  height: 8px;
+  border-radius: 999px;
+  background: #0d1016;
 }
 
-.cap {
-  left: 30px;
-  top: 14px;
-  width: 88px;
-  height: 31px;
-  background: linear-gradient(180deg, #2b3039, #10131a);
-  clip-path: polygon(50% 0, 100% 70%, 86% 100%, 14% 100%, 0 70%);
-}
-
-.tower {
-  left: 34px;
-  top: 82px;
-  width: 80px;
-  height: 188px;
-  background:
-    linear-gradient(100deg, rgba(0, 0, 0, 0.3), transparent 24% 68%, rgba(255, 255, 255, 0.1)),
-    repeating-linear-gradient(180deg, transparent 0 33px, rgba(96, 63, 51, 0.42) 34px 48px),
-    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 9px),
-    linear-gradient(180deg, #beb3a4, #8a786c);
-  clip-path: polygon(17% 0, 83% 0, 100% 100%, 0 100%);
-}
-
-.tower::before {
+.visor::before,
+.visor::after {
   content: "";
   position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 22% 24%, rgba(65, 46, 40, 0.32) 0 4px, transparent 5px),
-    radial-gradient(circle at 72% 58%, rgba(65, 46, 40, 0.26) 0 5px, transparent 6px),
-    linear-gradient(12deg, transparent 36%, rgba(65, 46, 40, 0.18) 37% 39%, transparent 40%);
-  opacity: 0.9;
+  top: 3px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #d8c77a;
+  box-shadow: 0 0 8px #d8c77a;
 }
 
-.base {
+.visor::before {
+  left: 4px;
+}
+
+.visor::after {
+  right: 4px;
+}
+
+.body {
+  left: 24px;
+  top: 38px;
+  width: 28px;
+  height: 48px;
+  border-radius: 14px 14px 10px 10px;
+  background: #8794b8;
+}
+
+.arm {
   left: 10px;
-  bottom: 0;
-  width: 128px;
-  height: 39px;
-  border-radius: 4px 4px 9px 9px;
-  background:
-    linear-gradient(90deg, rgba(0, 0, 0, 0.28), transparent 24% 74%, rgba(255, 255, 255, 0.06)),
-    linear-gradient(180deg, #71675f, #2f2c2c);
+  top: 48px;
+  width: 36px;
+  height: 7px;
+  border-radius: 999px;
+  background: #8794b8;
+  transform: rotate(-28deg);
 }
 
-.door {
-  left: 61px;
-  bottom: 19px;
-  width: 27px;
-  height: 52px;
-  border-radius: 12px 12px 0 0;
-  background: #242027;
-  box-shadow: inset 0 0 0 2px rgba(232, 223, 202, 0.08);
-}
-
-.window {
-  left: 65px;
-  width: 19px;
-  height: 20px;
-  border-radius: 2px;
-  background: #242027;
-  box-shadow: inset 0 0 0 2px rgba(232, 223, 202, 0.1);
-}
-
-.window-a {
-  top: 114px;
-}
-
-.window-b {
-  top: 171px;
-  opacity: 0.72;
-}
-
-.weather-line {
-  left: 39px;
-  width: 66px;
-  height: 2px;
-  background: rgba(53, 43, 39, 0.28);
-  transform: rotate(-6deg);
-}
-
-.line-a { top: 132px; }
-.line-b { top: 194px; width: 52px; }
-.line-c { top: 238px; width: 72px; }
-
-.rock {
-  position: absolute;
-  z-index: 2;
-  top: var(--top);
-  left: var(--left);
-  width: var(--w);
-  height: var(--h);
-  border-radius: 50% 50% 44% 56%;
-  background:
-    linear-gradient(115deg, rgba(255, 255, 255, 0.08), transparent 28%),
-    linear-gradient(180deg, #252b36, #070a0f);
-  opacity: 0.86;
-}
-
-.rock-a {
-  --left: 32%;
-  --top: 23%;
-  --w: 42px;
-  --h: 21px;
-}
-
-.rock-b {
-  --left: 64%;
-  --top: 25%;
-  --w: 58px;
-  --h: 24px;
+.tool {
+  left: 2px;
+  top: 40px;
+  width: 5px;
+  height: 82px;
+  border-radius: 999px;
+  background: #090c11;
   transform: rotate(8deg);
 }
 
-.rock-c {
-  --left: 72%;
-  --top: 18%;
-  --w: 28px;
-  --h: 15px;
-  opacity: 0.58;
+.tool::before {
+  content: "";
+  position: absolute;
+  left: -13px;
+  top: 0;
+  width: 26px;
+  height: 12px;
+  border-radius: 999px 999px 0 0;
+  border-top: 5px solid #090c11;
 }
+
+.shadow {
+  left: 6px;
+  top: 98px;
+  width: 58px;
+  height: 120px;
+  clip-path: polygon(38% 0, 58% 0, 100% 100%, 0 100%);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.42), transparent);
+  transform: rotate(-8deg);
+}
+
+.plant {
+  position: absolute;
+  top: var(--top);
+  left: var(--left);
+  width: 80px;
+  height: 120px;
+  opacity: 0.82;
+}
+
+.plant::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 7px;
+  height: 76%;
+  border-radius: 999px;
+  background: #05070a;
+  transform: translateX(-50%) rotate(var(--tilt, 0deg));
+}
+
+.plant::after {
+  content: "";
+  position: absolute;
+  left: 18%;
+  bottom: 32%;
+  width: 24px;
+  height: 44px;
+  border-radius: 80% 20% 70% 30%;
+  background: #05070a;
+  box-shadow:
+    32px -12px 0 #05070a,
+    44px 20px 0 #05070a,
+    -10px 26px 0 #05070a;
+}
+
+.plant-a { --left: 22%; --top: 2%; --tilt: -12deg; scale: 0.9; }
+.plant-b { --left: 30%; --top: 10%; --tilt: 8deg; scale: 0.72; }
+.plant-c { --left: 66%; --top: 6%; --tilt: 10deg; scale: 0.82; }
+.plant-d { --left: 74%; --top: 14%; --tilt: -8deg; scale: 0.68; }
 
 @keyframes star-pulse {
   50% {
@@ -576,36 +491,9 @@ h1 {
   }
 }
 
-@keyframes atmosphere-drift {
+@keyframes moon-dev-breathe {
   50% {
-    opacity: 0.95;
-    transform: translateX(2%) translateY(-1%);
-  }
-}
-
-@keyframes lighthouse-beam {
-  0%,
-  100% {
-    opacity: 0.14;
-    transform: rotate(-11deg) scaleX(0.92);
-  }
-
-  50% {
-    opacity: 0.58;
-    transform: rotate(-7deg) scaleX(1.04);
-  }
-}
-
-@keyframes lantern-dim {
-  0%,
-  100% {
-    opacity: 0.58;
-    transform: scale(0.92);
-  }
-
-  50% {
-    opacity: 1;
-    transform: scale(1.08);
+    transform: translateX(-50%) translateY(5px) rotate(1deg);
   }
 }
 
@@ -614,9 +502,9 @@ h1 {
     margin-top: -90px;
   }
 
-  .signal-mark {
+  .orbit-mark {
     width: 210px;
-    height: 70px;
+    height: 150px;
     margin-bottom: 20px;
   }
 
@@ -642,20 +530,20 @@ h1 {
     font-size: 0.84rem;
   }
 
-  .moon-surface {
-    bottom: -25vh;
-    width: 760px;
-    height: 440px;
+  .planet {
+    bottom: -38vh;
+    width: 720px;
+    height: 420px;
   }
 
-  .lighthouse {
-    top: -25%;
-    scale: 0.66;
+  .moon-dev {
+    top: 3%;
+    scale: 0.78;
   }
 
-  .beam {
-    width: 92vw;
-    height: 72px;
+  .plant-a,
+  .plant-d {
+    display: none;
   }
 }
 
