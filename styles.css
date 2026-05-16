@@ -311,82 +311,6 @@ h1 {
   --speed: 9.5s;
 }
 
-.hammock-scene {
-  position: absolute;
-  right: clamp(22px, 6vw, 118px);
-  bottom: clamp(30px, 8vh, 82px);
-  z-index: 3;
-  width: clamp(230px, 25vw, 390px);
-  opacity: 0.62;
-  transform:
-    translate3d(calc(var(--mx, 0) * 6px), calc((var(--my, 0) * 4px) + (var(--life, 0) * 5px)), 24px)
-    rotateX(calc(var(--my, 0) * -2deg))
-    rotateY(calc(var(--mx, 0) * 4deg));
-  transition: transform 260ms ease-out;
-}
-
-.hammock-scene img,
-.campfire img,
-.horse img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-.hammock-scene img {
-  filter: sepia(0.32) saturate(0.72) hue-rotate(82deg) brightness(0.74) contrast(1.12) drop-shadow(0 18px 22px rgba(0, 0, 0, 0.22));
-  mix-blend-mode: screen;
-}
-
-.campfire {
-  position: absolute;
-  left: clamp(50px, 13vw, 206px);
-  bottom: clamp(34px, 8vh, 78px);
-  z-index: 4;
-  width: clamp(54px, 6vw, 84px);
-  opacity: 0.76;
-  transform:
-    translate3d(calc(var(--mx, 0) * -5px), calc((var(--my, 0) * 3px) + (var(--flame, 0) * -2px)), 12px)
-    scale(calc(1 + (var(--flame, 0) * 0.045)));
-  transition: transform 260ms ease-out;
-}
-
-.campfire img {
-  position: relative;
-  z-index: 1;
-  filter: drop-shadow(0 0 18px rgba(240, 192, 109, 0.26));
-}
-
-.fire-glow {
-  position: absolute;
-  left: 50%;
-  bottom: 3%;
-  width: 86%;
-  height: 58%;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(240, 192, 109, 0.34), rgba(240, 122, 80, 0.14) 42%, transparent 72%);
-  filter: blur(8px);
-  transform: translateX(-50%);
-  animation: ember-pulse 3.6s ease-in-out infinite;
-}
-
-.horse {
-  position: absolute;
-  left: clamp(28px, 6vw, 92px);
-  bottom: clamp(94px, 15vh, 152px);
-  z-index: 3;
-  width: clamp(76px, 8vw, 116px);
-  opacity: 0.45;
-  transform:
-    translate3d(calc(var(--mx, 0) * -4px), calc((var(--my, 0) * 3px) + (var(--horse, 0) * 3px)), 8px)
-    rotateY(calc(var(--mx, 0) * -5deg));
-  transition: transform 260ms ease-out;
-}
-
-.horse img {
-  filter: drop-shadow(0 12px 14px rgba(0, 0, 0, 0.16));
-}
-
 .firefly {
   position: absolute;
   width: 6px;
@@ -448,20 +372,6 @@ h1 {
   70% { transform: translate3d(-16px, 18px, 0) scale(0.92); opacity: 0.52; }
 }
 
-@keyframes ember-pulse {
-  50% { opacity: 0.86; transform: translateX(-50%) scale(1.08); }
-}
-
-@keyframes fire-breathe {
-  0%, 100% { opacity: 0.68; transform: translate3d(calc(var(--mx, 0) * -5px), calc(var(--my, 0) * 3px), 0) scale(0.96); }
-  50% { opacity: 0.86; transform: translate3d(calc(var(--mx, 0) * -5px), calc(var(--my, 0) * 3px), 0) scale(1.04); }
-}
-
-@keyframes ground-float {
-  0%, 100% { translate: 0 0; }
-  50% { translate: 0 4px; }
-}
-
 @media (max-width: 720px) {
   .scene {
     align-items: start;
@@ -482,25 +392,6 @@ h1 {
     --h: 310px;
   }
 
-  .hammock-scene {
-    right: -34px;
-    bottom: 20px;
-    width: 250px;
-    opacity: 0.46;
-  }
-
-  .campfire {
-    left: 24px;
-    bottom: 20px;
-    width: 58px;
-  }
-
-  .horse {
-    left: 22px;
-    bottom: 134px;
-    width: 72px;
-    opacity: 0.36;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -18,14 +18,4 @@ if (scene && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     cursorOrb?.classList.remove('is-visible');
   });
 
-  const startedAt = performance.now();
-  const animateScene = (now) => {
-    const seconds = (now - startedAt) / 1000;
-    scene.style.setProperty('--life', Math.sin(seconds * 0.82).toFixed(3));
-    scene.style.setProperty('--flame', ((Math.sin(seconds * 3.1) + Math.sin(seconds * 5.2) * 0.35) / 1.35).toFixed(3));
-    scene.style.setProperty('--horse', Math.sin(seconds * 0.58 + 1.4).toFixed(3));
-    requestAnimationFrame(animateScene);
-  };
-
-  requestAnimationFrame(animateScene);
 }
