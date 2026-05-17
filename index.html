@@ -12,48 +12,58 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <main class="cosmos" aria-label="Saint Lofi portfolio">
+  <main class="cosmos is-lit" aria-label="Saint Lofi portfolio">
     <div class="stars" aria-hidden="true">
       <span></span><span></span><span></span><span></span><span></span><span></span>
       <span></span><span></span><span></span><span></span><span></span><span></span>
       <span></span><span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span><span></span>
+    </div>
+    <div class="shooting-stars" aria-hidden="true">
+      <span></span><span></span><span></span>
+    </div>
+    <div class="atmosphere" aria-hidden="true">
+      <span class="nebula"></span>
+      <span class="moon-mist"></span>
+      <span class="star-dust">
+        <i></i><i></i><i></i><i></i><i></i><i></i>
+        <i></i><i></i><i></i><i></i><i></i><i></i>
+        <i></i><i></i><i></i><i></i><i></i><i></i>
+      </span>
     </div>
 
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="orbit-mark" aria-hidden="true">
-        <span class="crest-orbit"></span>
-        <span class="crest-moon"></span>
-        <span class="crest-ridge"></span>
-        <span class="crest-star"></span>
-      </div>
+    <header class="site-header" aria-label="Primary">
+      <a class="brand" href="#hero-title" aria-label="Saint Lofi home">
+        <span class="brand-initials" aria-hidden="true">SL</span>
+        <span>Saint Lofi</span>
+      </a>
 
-      <p class="eyebrow">quiet digital studio</p>
+      <nav class="site-nav" aria-label="Site links">
+        <a href="https://github.com/saintlofi-pirate">Work</a>
+        <a href="https://saintlofi-pirate.github.io/pulse-press/">PulsePress</a>
+        <a href="mailto:saintlofi.dev@gmail.com">Contact</a>
+      </nav>
+    </header>
+
+    <section class="hero" aria-labelledby="hero-title">
+      <p class="eyebrow">WordPress products and calm tools</p>
       <h1 id="hero-title">Saint Lofi</h1>
-      <p class="intro">Handmade WordPress products, creator tools, and calm interfaces for people building on the web.</p>
+      <p class="intro">Building thoughtful WordPress plugins, creator utilities, and small web experiments.</p>
 
       <nav class="links" aria-label="Portfolio links">
-        <a href="https://github.com/saintlofi-pirate">GitHub</a>
-        <a href="https://github.com/saintlofi-pirate/pulse-press">PulsePress</a>
-        <a href="https://saintlofi-pirate.github.io/pulse-press/">Project page</a>
+        <a class="primary-action" href="https://github.com/saintlofi-pirate">GitHub</a>
+        <a href="https://saintlofi-pirate.github.io/pulse-press/">PulsePress</a>
       </nav>
     </section>
 
-    <div class="planet" aria-hidden="true">
-      <span class="planet-ring ring-one"></span>
-      <span class="planet-ring ring-two"></span>
-      <div class="soil"></div>
-      <div class="moon-dev">
-        <span class="helmet"></span>
-        <span class="visor"></span>
-        <span class="body"></span>
-        <span class="arm"></span>
-        <span class="tool"></span>
-        <span class="shadow"></span>
-      </div>
-      <span class="plant plant-a"></span>
-      <span class="plant plant-b"></span>
-      <span class="plant plant-c"></span>
-      <span class="plant plant-d"></span>
+    <div class="lunar-scene">
+      <span class="beam beam-left"></span>
+      <span class="beam beam-right"></span>
+      <span class="surface-shimmer"></span>
+      <span class="lamp-reflection"></span>
+      <button class="lamp-toggle" type="button" aria-label="Toggle lighthouse glow" aria-pressed="true"></button>
+      <img src="assets/lunar-lighthouse.png" alt="">
     </div>
   </main>
 
